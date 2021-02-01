@@ -7,16 +7,7 @@
 </head>
 <body>
 <div id="header">
-    {% if messages %}
-        <ul class="messages">
-            {% for message in messages %}
-                <li class="{{ message.tags }}">
-                    {{ message|safe }}
-                    <a href="#" class="close">x</a>
-                </li>
-            {% endfor %}
-        </ul>
-{% endif %}
+
     <span class="logo">Bookmarks</span>
     {% if request.user.is_authenticated %}
         <ul class="menu">
@@ -40,7 +31,16 @@
         {% endif %}
     </span>
 </div>
-
+{% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li class="{{ message.tags }}">
+                    {{ message|safe }}
+                    <a href="#" class="close">x</a>
+                </li>
+            {% endfor %}
+        </ul>
+{% endif %}
 <div id="content">
     {% block content %}
 
